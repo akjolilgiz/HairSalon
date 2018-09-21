@@ -9,13 +9,13 @@ namespace HairSalon.Models
   {
     public int id {get; set; }
     public string clientName {get; set; }
-    public int client_id {get; set; }
+    public int stylist_id {get; set; }
 
-    public Client(string newName, int clientId, int Id = 0)
+    public Client(string newName, int stylistId, int Id = 0)
       {
         id = Id;
         clientName = newName;
-        client_id = clientId;
+        stylist_id = stylistId;
       }
 
     public static List<Client> GetAll()
@@ -40,6 +40,34 @@ namespace HairSalon.Models
           conn.Dispose();
         }
         return allClients;
+      }
+    public void Save()
+      {
+        MySqlConnection conn = DB.Connection();
+        conn.Open();
+
+        var cmd = conn.CreateCommand() as MySqlCommand;
+        cmd.CommandText = @"INSERT INTO clients (clientName, stylist_id) VALUES (@ClientsName, @StylistId);";
+
+        MySqlParameter newName = new MySqlParameter();
+        newName.ParameterName = "@ClientsName";
+        newName.Value = this.clientName;
+        cmd.Parameters.Add(newName);
+
+        MySqlParameter newStylistID = new MySqlParameter();
+        newStylistID.ParameterName = @"StylistId";
+        newStylistID.Value = this.stylist_id;
+        cmd.Parameters.Add(newStylistID);
+
+
+        cmd.ExecuteNonQuery();
+        id = (int) cmd.LastInsertedId;
+
+        conn.Close();
+        if (conn !=null)
+        {
+          conn.Dispose();
+        }
       }
   }
 }
