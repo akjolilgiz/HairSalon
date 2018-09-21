@@ -10,7 +10,8 @@ namespace HairSalon.Controllers
     [HttpGet("/clients")]
     public ActionResult Index()
     {
-      return View();
+      List<Client> allClients = Client.GetAll();
+      return View(allClients);
     }
   }
 }

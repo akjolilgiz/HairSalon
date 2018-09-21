@@ -1,1 +1,13 @@
-List of stylists
+<a href = "/stylists/add">Add new Stylist</a>
+
+<br>
+<br>
+<br>
+<br>
+<p>List of Our Stylists:</p>
+@foreach(var stylist in Model)
+{
+<ul>
+  <li>@stylist.name</li>
+  </ul>
+}

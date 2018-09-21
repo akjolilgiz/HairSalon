@@ -9,8 +9,26 @@ namespace HairSalon.Controllers
   {
     [HttpGet("/stylists")]
     public ActionResult Index()
-    {
-      return View();
-    }
+      {
+        List<Stylist> allStylists = Stylist.GetAll();
+        return View(allStylists);
+      }
+
+    [HttpGet("/stylists/add")]
+    public ActionResult CreateForm()
+      {
+        return View();
+      }
+
+    [HttpPost("/stylists")]
+      public ActionResult Create()
+      {
+        // description = Request.Form("itemDescription");
+        Stylist newStylist = new Stylist(Request.Form["stylistsName"]);
+        newStylist.Save();
+        List<Stylist> allStylists = Stylist.GetAll();
+        return View("Index", allStylists);
+      }
+
   }
 }
