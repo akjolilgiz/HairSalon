@@ -31,7 +31,7 @@ _None._
 |5|The program lets user enter their name and assigns it to specific stylist|
 |6|The program lets user see the list of clients for each stylist|
 
-* Instructions to create database and tables with MySql commands:
+### Instructions to create database and tables with MySql commands:
   * 1>CREATE DATABASE akjol_jaenbai;
   * 2>Use akjol_jaenbai;
   * 3>CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAT(255));
