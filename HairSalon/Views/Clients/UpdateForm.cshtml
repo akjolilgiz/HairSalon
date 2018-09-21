@@ -6,10 +6,10 @@
 <form action="/clients/@Model["Client"].id/update" method="post">
     <label for="updateName">Name:</label>
     <input type="text" name="updateName" value="@Model["Client"].clientName">
-    <select>
+    <select name="stylist">
       @foreach (var stylist in Model["Stylist"])
       {
-        <option name="stylist" value=@stylist.id>@stylist.name</option>
+        <option value=@stylist.id>@stylist.name</option>
       }
     </select>
     <button type="submit">Edit</button>

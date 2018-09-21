@@ -118,12 +118,12 @@ namespace HairSalon.Models
 
            MySqlParameter clientsName = new MySqlParameter();
            clientsName.ParameterName = "@newClientName";
-           clientsName.Value = clientName;
+           clientsName.Value = newName;
            cmd.Parameters.Add(clientsName);
 
            MySqlParameter clientsStylistId = new MySqlParameter();
            clientsStylistId.ParameterName = "@newStylistId";
-           clientsStylistId.Value = stylist_id;
+           clientsStylistId.Value = newStylistID;
            cmd.Parameters.Add(clientsStylistId);
 
            cmd.ExecuteNonQuery();
@@ -136,6 +136,27 @@ namespace HairSalon.Models
                conn.Dispose();
            }
          }
+      public void Delete(int id)
+         {
+           MySqlConnection conn = DB.Connection();
+           conn.Open();
+           var cmd = conn.CreateCommand() as MySqlCommand;
+           cmd.CommandText = @"DELETE FROM items WHERE id = @thisId";
+
+           MySqlParameter searchId = new MySqlParameter();
+           searchId.ParameterName = "@thisId";
+           searchId.Value = id;
+         cmd.Parameters.Add(searchId);
+
+           cmd.ExecuteNonQuery();
+
+           conn.Close();
+           if (conn != null)
+           {
+               conn.Dispose();
+           }
+         }
+
 
       public static void DeleteAll()
          {
@@ -155,7 +176,7 @@ namespace HairSalon.Models
          }
       public override bool Equals(System.Object otherClient)
          {
-           if (!(otherItem is Client))
+           if (!(otherClient is Client))
            {
              return false;
            }
@@ -164,9 +185,8 @@ namespace HairSalon.Models
 
              Client newClient = (Client) otherClient;
              bool idEquality = (this.id == newClient.id);
-
-             bool clientNameEquality = (this.clientName == newClient.clientName);
-             return (clientName && idEquality);
+             bool nameEquality = (this.clientName == newClient.clientName);
+             return (nameEquality && idEquality);
            }
          }
       public override int GetHashCode()

@@ -138,7 +138,7 @@ namespace HairSalon.Models
        }
     public override bool Equals(System.Object otherStylist)
        {
-         if (!(otherItem is Stylist))
+         if (!(otherStylist is Stylist))
          {
            return false;
          }
@@ -147,9 +147,8 @@ namespace HairSalon.Models
 
            Stylist newStylist = (Stylist) otherStylist;
            bool idEquality = (this.id == newStylist.id);
-
            bool nameEquality = (this.name == newStylist.name);
-           return (name && idEquality);
+           return (nameEquality && idEquality);
          }
        }
     public override int GetHashCode()
