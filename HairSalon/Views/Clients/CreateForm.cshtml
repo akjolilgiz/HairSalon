@@ -6,7 +6,7 @@
   <label for='clientsName'>Clients Name</label>
   <input id='clientsName' name='clientsName' type='text'>
   <label for='stylist'>Pick a Stylist</label>
-  <select name="stylist">
+  <select name='stylist'>
     @foreach (var stylist in Model)
     {
       <option  value=@stylist.id>@stylist.name</option>

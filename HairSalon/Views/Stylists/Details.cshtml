@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+<p>@Model["Stylist"].name</p>
+
+Clients :
+  @foreach(var client in Model["Stylist"].GetClient())
+  {
+  <ul>
+    <li>@client.clientName | <a href="/clients/@client.id/update">Update</a></li>
+  </ul>
+  }
+
+
+<p><a href="/stylists">Back to Stylists</a></p>
+<p><a href="/">Back to Home Page</a></p>

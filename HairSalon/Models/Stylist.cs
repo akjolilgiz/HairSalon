@@ -80,15 +80,82 @@ namespace HairSalon.Models
           StylistId = rdr.GetInt32(0);
           StylistName = rdr.GetString(1);
         }
-        Stylist newStylist = new Stylist(StylistName, StylistId);
+        Stylist foundStylist = new Stylist(StylistName, StylistId);
         conn.Close();
         if (conn != null)
         {
           conn.Dispose();
         }
-        return newStylist;
-
-
+        return foundStylist;
       }
+    public List<Client> GetClient()
+    {
+      {
+        List<Client> allClients = new List<Client> {};
+        MySqlConnection conn = DB.Connection();
+        conn.Open();
+        var cmd = conn.CreateCommand() as MySqlCommand;
+        cmd.CommandText = @"SELECT * FROM clients WHERE stylist_id = @stylist_id;";
+
+        MySqlParameter stylistId = new MySqlParameter();
+        stylistId.ParameterName = "@stylist_id";
+        stylistId.Value = this.id;
+        cmd.Parameters.Add(stylistId);
+
+
+        var rdr = cmd.ExecuteReader() as MySqlDataReader;
+        while(rdr.Read())
+        {
+          int clientsId = rdr.GetInt32(0);
+          string clietsName = rdr.GetString(1);
+          int clientsStylistId = rdr.GetInt32(2);
+          Client newClient = new Client(clietsName, clientsStylistId, clientsId);
+          allClients.Add(newClient);
+        }
+        conn.Close();
+        if (conn != null)
+        {
+            conn.Dispose();
+        }
+        return allClients;
+      }
+    }
+    public static void DeleteAll()
+       {
+         MySqlConnection conn = DB.Connection();
+         conn.Open();
+
+         var cmd = conn.CreateCommand() as MySqlCommand;
+         cmd.CommandText = @"DELETE FROM clients;";
+
+         cmd.ExecuteNonQuery();
+
+         conn.Close();
+         if (conn != null)
+         {
+             conn.Dispose();
+         }
+       }
+    public override bool Equals(System.Object otherStylist)
+       {
+         if (!(otherItem is Stylist))
+         {
+           return false;
+         }
+         else
+         {
+
+           Stylist newStylist = (Stylist) otherStylist;
+           bool idEquality = (this.id == newStylist.id);
+
+           bool nameEquality = (this.name == newStylist.name);
+           return (name && idEquality);
+         }
+       }
+    public override int GetHashCode()
+       {
+         return this.name.GetHashCode();
+       }
+
   }
 }

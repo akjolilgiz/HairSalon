@@ -1,7 +1,9 @@
+@using HairSalon.Models;
+
 @foreach(var client in Model)
 {
 <ul>
-  <li>@client.clientName</li>
+  <li><a href="/clients/@client.id">@client.clientName</a></li>
 </ul>
 }
 <a href = "/clients/add">Add New Client</a>

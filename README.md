@@ -44,7 +44,7 @@ _None._
 |2|>USE akjol_jaenbai;
 * Instructions to insert data inside the tables:
 |1| INSERT INTO stylists (name)  VALUES ("Name of the stylist");
-|2|INSERT INTO clients (name) VALUES ("Name of the client")
+|2|INSERT INTO clients (clientName) VALUES ("Name of the client")
 
 
 
