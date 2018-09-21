@@ -24,7 +24,7 @@ _None._
 ## Specs
 |#|Spec Description|Input|Expected Output|
 |-------|-------|------|------|
-|1|The program opens homepage when user navigates to localhost:5000|http://localhost:5000|"Stylist", "Client"|
+|1|The program opens homepage when user navigates to localhost:5000|http://localhost:5000 |"Stylist", "Client"|
 |2|The program allows user to register as stylist or client|
 |3|The program displays the list of hair stylists to the user |open page|"list of hair stylists"|
 |4|The program lets user pick any stylist they want|click a dropdown button |"List of hair stylists"|

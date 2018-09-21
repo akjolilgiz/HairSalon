@@ -35,12 +35,12 @@ namespace HairSalon
             });
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Stop trying to make fetch happen. Its not going to happen!");
+                await context.Response.WriteAsync("Welcome!");
             });
         }
     }
     public static class DBConfiguration
     {
-        public static string ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=HairSalon;";
+        public static string ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=akjol_jaenbai;";
     }
 }
