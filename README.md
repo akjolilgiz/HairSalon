@@ -32,16 +32,18 @@ _None._
 |6|The program lets user see the list of clients for each stylist|
 
 * Instructions to create database and tables with MySql commands:
-1>CREATE DATABASE akjol_jaenbai;
-2>Use akjol_jaenbai;
-3>CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAT(255));
-4>CREATE TABLE clients (id serial PRIMARY KEY, clientName VARCHAR(255), stylist_id INT);
+  * 1>CREATE DATABASE akjol_jaenbai;
+  * 2>Use akjol_jaenbai;
+  * 3>CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAT(255));
+  * 4>CREATE TABLE clients (id serial PRIMARY KEY, clientName VARCHAR(255), stylist_id INT);
 * To select a database:
-1>SHOW DATABASES;
-2>USE akjol_jaenbai;
+  * 1>SHOW DATABASES;
+  * 2>USE akjol_jaenbai;
 * Instructions to insert data inside the tables:
-1> INSERT INTO stylists (name)  VALUES ("Name of the stylist");
-2> INSERT INTO clients (clientName) VALUES ("Name of the client")
+  * 1> INSERT INTO stylists (name)  VALUES ("Name of the stylist");
+  * 2> INSERT INTO clients (clientName) VALUES ("Name of the client")
+
+
 
 
 
