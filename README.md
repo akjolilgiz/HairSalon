@@ -31,8 +31,7 @@ _None._
 |5|The program lets user enter their name and assigns it to specific stylist|
 |6|The program lets user see the list of clients for each stylist|
 
-## Specs
-* Instructions to create database and tables with MySql commands:
+|* Instructions to create database and tables with MySql commands:|
 |#|Instructions|
 |-------|-------|
 |1|>CREATE DATABASE akjol_jaenbai;
