@@ -2,16 +2,20 @@
   Layout = "_Layout";
 }
 
-<p>Client Details</p>
+<div class = "clientName">
+<p><h2>Client Details<h2></p>
+</div>
+
     <li>Clients Id : @Model["Client"].id</li>
     <li>Clients Name : @Model["Client"].clientName</li>
     <li>Stylists Name: @Model["Stylist"].name</li>
+</br>
+</br>
+</br>
 
 <form action='/clients/@Model["Client"].id/delete' method="post">
   <button type="submit">Delete</button>
 </form>
+<hr>
 
-
-<p><a href="/clients">Back to Clients</a></p>
-<p><a href="/stylists">Back to Stylists</a></p>
-<p><a href="/">Back to Home Page</a></p>
+<p><a href="/clients" class = "btn btn-danger">Back to Clients</a> | <a href="/stylists" class = "btn btn-success">Back to Stylists</a> | <a href="/" class = "btn btn-info">Back to Home Page</a></p>
