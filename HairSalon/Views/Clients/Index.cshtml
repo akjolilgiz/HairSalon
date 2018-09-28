@@ -5,7 +5,7 @@
 @foreach(var client in Model)
 {
 <ul>
-  <li><a href="/clients/@client.id">@client.clientName</a></li>
+  <li><a href="/clients/@client.id">@client.clientName</a>   | <a href="/clients/@client.id/update">Update</a></li>
 </ul>
 }
 <a href = "/clients/add">Add New Client</a>

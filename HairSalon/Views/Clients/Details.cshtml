@@ -7,6 +7,11 @@
     <li>Clients Name : @Model["Client"].clientName</li>
     <li>Stylists Name: @Model["Stylist"].name</li>
 
+<form action='/clients/@Model["Client"].id/delete' method="post">
+  <button type="submit">Delete</button>
+</form>
+
+
 <p><a href="/clients">Back to Clients</a></p>
 <p><a href="/stylists">Back to Stylists</a></p>
 <p><a href="/">Back to Home Page</a></p>

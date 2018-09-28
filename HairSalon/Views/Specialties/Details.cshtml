@@ -1,9 +1,21 @@
 @{
   Layout = "_Layout";
 }
+@using HairSalon.Models;
+<div class = "container jumbotron">
+<p><h1>@Model["Specialty"].description</h1></p>
+</div>
+<div>
+  <h3> Stylists :</h3>
+  <form action='/specialties/@Model["Specialty"].id/addStylist' method='post'>
+     <select name='stylists'>
 
-<h1><p>@Model["Specialty"].description</p></h1>
-  <h3> Stylist names :</h3>
+      @foreach (var stylist in @Model["Stylists"])
+      {
+        <option  value=@stylist.id>@stylist.name</option>
+      }
+    </select>
+    <button type='submit'>Add Stylist</button>
 
 
   @foreach(var stylist in @Model["specialtyStylists"])
@@ -16,7 +28,7 @@
   </br>
   </br>
   </br>
-
+</div>
 <p><a href="/clients">Back to Clients</a> | <a href="/stylists">Back to Stylists</a> | <a href="/specialties">Back to Specialties</a></p>
 
 <p><a href="/">Back to Home Page</a></p>

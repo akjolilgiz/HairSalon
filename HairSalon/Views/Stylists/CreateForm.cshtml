@@ -1,5 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+
 <form action='/stylists' method='post'>
   <label for='stylistsName'>Stylist name</label>
   <input id='stylistsName' name='stylistsName' type='text'>
+  <button type='submit'>Pick a Specialty</button>
+  <select name='specialty'>
+    @foreach (var specialty in @Model["Specialty"])
+    {
+      <option  value=@specialty.id>@specialty.description</option>
+    }
+  </select>
   <button type='submit'>Add Stylist</button>
+
 </form>
