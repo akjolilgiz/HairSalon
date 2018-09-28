@@ -1,9 +1,16 @@
-<a href = "/specialties/add">Add new Specialty</a>
+@{
+  Layout = "_Layout";
+}
+
+<div class = "container jumbotron">
+<h1>Specialties</h1>
+</div>
+
+<a href = "/specialties/add" class = "btn btn-success">Add new Specialty</a>
 
 <br>
 <br>
-<br>
-<br>
+
 <p>List of Specialties:</p>
 @foreach(var specialty in Model)
 {
@@ -15,4 +22,4 @@
 
 
 
-<a href = "/">Back to Home Page</a>
+<a href = "/" class = "btn btn-info">Back to Home Page</a>

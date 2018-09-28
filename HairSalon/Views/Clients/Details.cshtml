@@ -2,8 +2,8 @@
   Layout = "_Layout";
 }
 
-<div class = "clientName">
-<p><h2>Client Details<h2></p>
+<div class = "container jumbotron">
+<p><h2>@Model["Client"].clientName<h2></p>
 </div>
 
     <li>Clients Id : @Model["Client"].id</li>
@@ -14,8 +14,8 @@
 </br>
 
 <form action='/clients/@Model["Client"].id/delete' method="post">
-  <button type="submit">Delete</button>
+  <button type="submit" class = "btn btn-danger">Delete this client</button>
 </form>
 <hr>
 
-<p><a href="/clients" class = "btn btn-danger">Back to Clients</a> | <a href="/stylists" class = "btn btn-success">Back to Stylists</a> | <a href="/" class = "btn btn-info">Back to Home Page</a></p>
+<p><a href="/clients" class = "btn btn-warning">Back to Clients</a> | <a href="/stylists" class = "btn btn-success">Back to Stylists</a> | <a href="/" class = "btn btn-info">Back to Home Page</a></p>
