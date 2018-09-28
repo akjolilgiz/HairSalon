@@ -30,9 +30,10 @@ namespace HairSalon.Controllers
       {
         Specialty newSpecialty = new Specialty(Request.Form["specialtyDescription"]);
         newSpecialty.Save();
-        Stylist newStylist = newSpecialty.AddStylist(newStylist);
+        Stylist newStylist = Stylist.Find(Int32.Parse(Request.Form["stylist"]));
+        newSpecialty.AddStylist(newStylist);
         List<Specialty> allSpecialties = Specialty.GetAll();
-        return View("Index", allSpecialties);
+        return RedirectToAction("Index");
       }
 
     [HttpGet("/specialties/{id}")]
