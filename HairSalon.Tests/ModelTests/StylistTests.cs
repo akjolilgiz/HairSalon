@@ -11,22 +11,22 @@ namespace HairSalon.Tests
    {
      public void Dispose()
      {
-       Client.DeleteAll();
+       Stylist.DeleteAll();
      }
      public StylistTests()
      {
        DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=akjol_jaenbai_test;";
      }
-    //  [TestMethod]
-    //  public void GetAll_DbStartsEmpty_0()
-    //  {
-    //    //Arrange
-    //    //Act
-    //    int result = Stylist.GetAll().Count;
-     //
-    //    //Assert
-    //    Assert.AreEqual(0, result);
-    //  }
+     [TestMethod]
+     public void GetAll_DbStartsEmpty_0()
+     {
+       //Arrange
+       //Act
+       int result = Stylist.GetAll().Count;
+
+       //Assert
+       Assert.AreEqual(0, result);
+     }
      [TestMethod]
      public void Equals_ReturnsTrueIfNamesAreTheSame_Stylist()
      {
@@ -37,11 +37,12 @@ namespace HairSalon.Tests
        // Assert
        Assert.AreEqual(firstStylist, secondStylist);
      }
+
      [TestMethod]
-      public void Save_SavesToDatabase_List()
+      public void Save_SavesToDatabase_StylistList()
       {
         //Arrange
-        Stylist testStylist = new Stylist("Mow the lawn");
+        Stylist testStylist = new Stylist("Mow the lawn", 1);
 
         //Act
         testStylist.Save();
@@ -49,39 +50,39 @@ namespace HairSalon.Tests
         List<Stylist> testList = new List<Stylist>{testStylist};
 
         //Assert
-        Assert.AreEqual(result, testList);
       }
-    //
-    // [TestMethod]
-    //   public void Find_FindsClientInDatabase_Client()
-    //   {
-    //       //Arrange
-    //       Client testClient = new Client("Mow the lawn", 1);
-    //       testClient.Save();
-    //
-    //       //Act
-    //       Client foundClient = Client.Find(testClient.id);
-    //
-    //       //Assert
-    //       Assert.AreEqual(testClient, foundClient);
-    //   }
-    // [TestMethod]
-    //  public void Edit_UpdatesClientInDatabase_String()
-    //  {
-    //      //Arrange
-    //      string firstClient = "walk the dog";
-    //      Client testClient = new Client (firstClient, 1);
-    //      testClient.Save();
-    //      string secondClient = "Mow the lawn";
-    //
-    //      //Act
-    //      testClient.Edit(secondClient, 1);
-    //
-    //      string result = Client.Find(testClient.id).clientName;
-    //
-    //      //Assert
-    //      Assert.AreEqual(secondClient, result);
-    //  }
+
+
+    [TestMethod]
+      public void Find_FindsStylistInDatabase_Stylist()
+      {
+          //Arrange
+          Stylist testStylist = new Stylist("Mow the lawn", 1);
+          testStylist.Save();
+
+          //Act
+          Stylist foundStylist = Stylist.Find(testStylist.id);
+
+          //Assert
+          Assert.AreEqual(testStylist, foundStylist);
+      }
+    [TestMethod]
+     public void Edit_UpdatesStylistInDatabase_String()
+     {
+         //Arrange
+         string firstStylist = "walk the dog";
+         Stylist testStylist = new Stylist (firstStylist, 1);
+         testStylist.Save();
+         string secondStylist = "Mow the lawn";
+
+         //Act
+         testStylist.Edit(secondStylist);
+
+         string result = Stylist.Find(testStylist.id).name;
+
+         //Assert
+         Assert.AreEqual(secondStylist, result);
+     }
 
   }
 }

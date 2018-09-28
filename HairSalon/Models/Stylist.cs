@@ -126,7 +126,7 @@ namespace HairSalon.Models
          conn.Open();
 
          var cmd = conn.CreateCommand() as MySqlCommand;
-         cmd.CommandText = @"DELETE FROM clients;";
+         cmd.CommandText = @"DELETE FROM stylists;";
 
          cmd.ExecuteNonQuery();
 
