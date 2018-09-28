@@ -90,5 +90,13 @@ namespace HairSalon.Controllers
           return RedirectToAction("Index");
       }
 
+    [HttpPost("/stylists/search")]
+      public ActionResult search()
+      {
+          string foundName = Request.Form["searchedName"];
+          List<Stylist> foundStylists = Stylist.SearchInStylistTable(foundName);
+          return View(foundStylists);
+      }
+
   }
 }

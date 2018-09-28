@@ -1,0 +1,12 @@
+<h1>Search result</h1>
+<thead>
+  <tr>
+    <th scope="col">Results</th>
+  </tr>
+  @foreach(var stylist in @Model)
+  {
+    <tr>
+      <td><li><a href="/stylists/@stylist.id/details">@stylist.name</a></li></td>
+    </tr>
+  }
+</thead>

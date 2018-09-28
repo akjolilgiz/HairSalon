@@ -1,3 +1,8 @@
+@{
+  Layout = "_Layout";
+}
+
+
 <a href = "/stylists/add">Add new Stylist</a>
 
 <br>
@@ -11,4 +16,12 @@
   <li><a href="/stylists/@stylist.id">@stylist.name</a> | <a href="/stylists/@stylist.id/update"> Update</a></li>
 </ul>
 }
-<a href = "/">Back to Home Page</a>
+
+<form class='form-group' action="/stylists/search" method="post">
+    <label for='searchedName'>Name</label>
+    <input name='searchedName' type='text' required><br>
+
+    <button type='submit' class='btn btn-success'>Search</button>
+  </form>
+
+<a href = "/" class = "btn btn-info">Back to Home Page</a>
