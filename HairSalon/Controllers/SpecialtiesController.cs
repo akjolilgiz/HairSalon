@@ -58,5 +58,6 @@ namespace HairSalon.Controllers
         List<Stylist> allStylists = Stylist.GetAll();
         return RedirectToAction("Details");
       }
+
   }
 }
