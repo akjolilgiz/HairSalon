@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1><p>@Model["Specialty"].description</p></h1>
+
+  @foreach(var stylist in @Model["specialtyStylists"])
+  {
+    <li>@stylist.name</li>
+  }
+
+<p><a href="/clients">Back to Clients</a></p>
+<p><a href="/stylists">Back to Stylists</a></p>
+<p><a href="/specialties">Back to Specialties</a></p>
+
+<p><a href="/">Back to Home Page</a></p>

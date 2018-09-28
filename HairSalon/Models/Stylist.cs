@@ -144,7 +144,6 @@ namespace HairSalon.Models
          }
          else
          {
-
            Stylist newStylist = (Stylist) otherStylist;
            bool idEquality = (this.id == newStylist.id);
            bool nameEquality = (this.name == newStylist.name);

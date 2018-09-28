@@ -1,0 +1,14 @@
+<a href = "/specialties/add">Add new Specialty</a>
+
+<br>
+<br>
+<br>
+<br>
+<p>List of Specialties:</p>
+@foreach(var specialty in Model)
+{
+<ul>
+  <li><a href="/specialties/@specialty.id">@specialty.description</a></li>
+</ul>
+}
+<a href = "/">Back to Home Page</a>

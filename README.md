@@ -30,6 +30,9 @@ _None._
 |4|The program lets user pick any stylist they want|click a dropdown button |"List of hair stylists"|
 |5|The program lets user enter their name and assigns it to specific stylist|
 |6|The program lets user see the list of clients for each stylist|
+|6|The program allows user to add specialties for stylists|
+|6|The program lets user add stylists for specialties|
+
 
 
 ### Instructions to create database and tables with MySql commands:

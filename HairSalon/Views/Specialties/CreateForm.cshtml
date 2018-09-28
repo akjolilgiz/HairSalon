@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+@using HairSalon.Models
+<form action='/specialties' method='post'>
+  <label for='specialtyDescription'>Specialty Description</label>
+  <input id='specialtyDescription' name='specialtyDescription' type='text'>
+  <label for='stylist'>Pick a Stylist</label>
+  <select name='stylist'>
+    @foreach (var stylist in @Model["Stylist"])
+    {
+      <option  value=@stylist.id>@stylist.name</option>
+    }
+  </select>
+  <button type='submit'>Add item</button>
+</form>
