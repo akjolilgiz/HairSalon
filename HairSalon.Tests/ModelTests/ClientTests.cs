@@ -81,6 +81,5 @@ namespace HairSalon.Tests
          //Assert
          Assert.AreEqual(secondClient, result);
      }
-
   }
 }
